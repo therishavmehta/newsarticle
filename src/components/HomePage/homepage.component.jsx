@@ -53,7 +53,6 @@ class HomePage extends React.Component {
         }
     }
     render() {
-        const { history } = this.props;
         return (
             <div style={{ padding: '20px' }}>
                 <Grid container spacing={3} direction="column">
@@ -73,7 +72,7 @@ class HomePage extends React.Component {
             this.changeData(e.target.value, this.state.newsArticle);
         }
     }
-    changeData = (search, data) => {
+    changeData(search, data) {
         var newData = data.filter((item) => {
             for (let property in item) {
                 if (item.hasOwnProperty(property) && item[property] !== null && search !== null) {

@@ -12,9 +12,6 @@ import { Grid } from '@material-ui/core';
 
 
 class Cards extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { history } = this.props;
         const { data } = this.props;

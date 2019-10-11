@@ -1,4 +1,3 @@
-const ADD_ARTICLE = "ADD_ARTICLE";
 
 export const getNews = () => ({
     type: 'GET_NEWS_DATA',

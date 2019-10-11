@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core'
 
 class Article extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { newsArticle, match } = this.props;
         const val = Number(match.params.id) - 1;
@@ -22,7 +19,7 @@ class Article extends React.Component {
                     <Grid item lg={12}>
                         <h2>{data.title}</h2><p>{data.publishedAt.slice(0, 10)}</p> by <h5>{data.author}</h5>
                         <p>{data.content}</p>
-                        <a href={data.url} target="_blank">Read More</a>
+                        <a href={data.url} target="_blank" rel="stylesheet">Read More</a>
                     </Grid>
                 </Grid>
             </div>
