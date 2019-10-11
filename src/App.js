@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import styled from 'styled-components';
 import HomePage from './components/HomePage/homepage.component';
 import Article from './components/Article/article.component';
 
