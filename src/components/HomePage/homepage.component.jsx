@@ -73,11 +73,14 @@ class HomePage extends React.Component {
         }
     }
     changeData(search, data) {
-        var newData = data.filter((item) => {
+        var newData = [];
+        data.forEach((item) => {
             for (let property in item) {
                 if (item.hasOwnProperty(property) && item[property] !== null && search !== null) {
                     if (item[property].toString().toLowerCase().indexOf(search.toLowerCase()) > -1) {
-                        return true;
+                        if (!newData.includes(item)) {
+                            newData.push(item);
+                        }
                     }
                 }
             }
