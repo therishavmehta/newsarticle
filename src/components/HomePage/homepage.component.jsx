@@ -38,13 +38,12 @@ class HomePage extends React.Component {
     componentWillMount() {
         const { setNews } = this.props;
         try {
-            fetch('http://www.mocky.io/v2/5d8686a032000024b607b40e')
+            fetch('https://www.mocky.io/v2/5d8686a032000024b607b40e')
                 .then(response => response.json())
                 .then(newsArticle => {
                     this.setState({ newsArticle: newsArticle.articles, searchArticle: newsArticle.articles }, () => {
                         var temp = this.state.newsArticle;
                         temp.forEach((item, index) => item.id = index + 1);
-                        console.log(temp);
                         setNews({ ...temp });
                     })
                 });
@@ -88,9 +87,6 @@ class HomePage extends React.Component {
         this.setState({
             searchArticle: newData
         })
-    }
-    handleClick = (key) => {
-        console.log("hello", key);
     }
 }
 

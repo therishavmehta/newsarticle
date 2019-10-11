@@ -6,10 +6,8 @@ class Article extends React.Component {
     render() {
         const { newsArticle, match } = this.props;
         const val = Number(match.params.id) - 1;
-        console.log(newsArticle[0][val]);
         const data = newsArticle[0][val];
         const { props } = this.props;
-        console.log(props);
         return (
             <div style={{ paddingLeft: '20px' }}>
                 <Grid container spacing={2} direction="row">
