@@ -55,14 +55,16 @@ class HomePage extends React.Component {
     render() {
         const { history } = this.props;
         return (
-            <Grid container spacing={3} direction="column">
-                <Grid item>
-                    <SearchField type="search" placeholder="search content" onChange={this.handleChange} />
+            <div style={{ padding: '20px' }}>
+                <Grid container spacing={3} direction="column">
+                    <Grid item>
+                        <SearchField type="search" placeholder="search content" onChange={this.handleChange} />
+                    </Grid>
+                    <Grid item>
+                        {this.state.searchArticle.map((data, index) => (<Cards key={index} data={data} />))}
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    {this.state.searchArticle.map((data, index) => (<Cards key={index} data={data} />))}
-                </Grid>
-            </Grid>
+            </div>
         );
     }
     handleChange = (e) => {
