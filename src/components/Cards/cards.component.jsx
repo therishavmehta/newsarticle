@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -16,36 +17,39 @@ class Cards extends React.Component {
         const { history } = this.props;
         const { data } = this.props;
         return (
-            <Grid container direction="row"  >
-                <Grid item lg={3}>
-                    <Card style={{ maxWidth: '345px' }} >
-                        <CardActionArea>
-                            {data.title ? (<CardMedia
-                                component="img"
-                                alt={data.title}
-                                height="140"
-                                image={data.urlToImage}
-                                title={data.title}
-                            />) : null}
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    {data.title} </Typography>
-                                <div style={{ fontSize: '10px' }}>
-                                    by {data.author}
-                                    <br />
-                                </div>
-                                <Typography variant="body2" color="textSecondary" component="p">
-                                    {data.description}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button size="small" color="primary" onClick={() => { history.push(`/article/${data.id}`) }}>
-                                Read More</Button>
-                        </CardActions>
-                    </Card>
-                </Grid>
-            </Grid>
+            <div>
+                {data ? (
+                    <Grid container direction="row"  >
+                        <Grid item lg={3}>
+                            <Card style={{ maxWidth: '345px' }} >
+                                <CardActionArea>
+                                    {data.title ? (<CardMedia
+                                        component="img"
+                                        alt={data.title}
+                                        height="140"
+                                        image={data.urlToImage}
+                                        title={data.title}
+                                    />) : null}
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            {data.title} </Typography>
+                                        <div style={{ fontSize: '10px' }}>
+                                            by {data.author}
+                                            <br />
+                                        </div>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            {data.description}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    <Button size="small" color="primary" onClick={() => { history.push(`/article/${data.id}`) }}>
+                                        Read More</Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    </Grid>) : (<CircularProgress />)}
+            </div>
         );
     }
 }
